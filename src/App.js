@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 import styled from 'styled-components'
 import Note from './components/Note'
@@ -21,8 +21,12 @@ const Button = styled.button`
 `
 
 function App() {
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState(JSON.parse(window.localStorage.getItem('notes')) || [])
   const [draft, setDraft] = useState('')
+
+  useEffect(() => {
+    window.localStorage.setItem('notes', JSON.stringify(notes))
+  }, [notes])
 
   function handleChange(e) {
     setDraft(e.target.value)

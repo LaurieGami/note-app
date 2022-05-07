@@ -14,15 +14,15 @@ function Note({ note, onDelete, onSave }) {
         {edit ? <button onClick={() => handleSave()}>Save</button> : <button onClick={() => setEdit(!edit)}>Edit</button>}
         <button onClick={() => onDelete(note.id)}>Delete</button>
         {edit ? (
-            <textarea
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
         ) : (
-            <>
-                <h2>{new Date(note.createdAt).toString()}</h2>
-                <p>{text}</p>
-            </>
+          <>
+            <h2>{new Date(note.createdAt).toString()}</h2>
+            <p>{text}</p>
+          </>
         )
       }
     </div>
