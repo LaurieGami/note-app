@@ -40,6 +40,13 @@ function App() {
     setNotes(newNotes)
   }
 
+  function onSave(id, value) {
+    const noteIndex = notes.findIndex(note => note.id === id)
+    const newNotes = [...notes]
+    newNotes[noteIndex].value = value
+    setNotes(newNotes)
+  }
+
   return (
     <Container>
       <Title>Note App</Title>
@@ -61,6 +68,7 @@ function App() {
               key={note.id}
               note={note}
               onDelete={onDelete}
+              onSave={onSave}
             />
           )
         })}
