@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import styled from 'styled-components'
+import Note from './components/Note'
 
 const Container = styled.div`
   display: flex;
@@ -56,11 +57,11 @@ function App() {
       <div>
         {notes.map((note) => {
           return (
-            <div key={note.id}>
-              <h3>{note.createdAt.toString()}</h3>
-              <p>{note.value}</p>
-              <button onClick={() => onDelete(note.id)}>Delete</button>
-            </div>
+            <Note
+              key={note.id}
+              note={note}
+              onDelete={onDelete}
+            />
           )
         })}
       </div>
