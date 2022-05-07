@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { Remark } from "react-remark";
 
 const Content = styled.section`
   display: flex;
@@ -45,7 +46,7 @@ const StyledTextArea = styled.textarea`
   }
 `;
 
-const Text = styled.p`
+const RemarkContainer = styled.div`
   padding: 12px;
 `;
 
@@ -106,7 +107,11 @@ function Note({ note, onDelete, onSave }) {
             onChange={(e) => setText(e.target.value)}
           />
         ) : (
-          <Text>{text}</Text>
+          <>
+            <RemarkContainer>
+              <Remark>{text}</Remark>
+            </RemarkContainer>
+          </>
         )}
       </NoteContainer>
       <DateContainer>{formatDate(note.createdAt)}</DateContainer>

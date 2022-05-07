@@ -16,6 +16,8 @@ const Content = styled.section`
   display: flex;
   flex-direction: column;
   width: 400px;
+  min-height: calc(100vh - 100px);
+  padding-bottom: 50px;
 `;
 
 const HeaderContainer = styled.div`
@@ -114,7 +116,7 @@ function App() {
     <Container>
       <Content>
         <HeaderContainer>
-          <Title>Notes 🗒</Title>
+          <Title>🗒 Markdown Notes</Title>
         </HeaderContainer>
         <StyledForm onSubmit={handleSubmit}>
           <StyledTextArea
