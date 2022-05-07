@@ -76,7 +76,9 @@ const Button = styled.button`
 
 function App() {
   const [notes, setNotes] = useState(
-    JSON.parse(window.localStorage.getItem("notes")) || []
+    JSON.parse(window.localStorage.getItem("notes")) || [
+      { id: uuid(), value: "``` Hello World! ```", createdAt: new Date() },
+    ]
   );
   const [draft, setDraft] = useState("");
 
